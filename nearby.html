@@ -17,7 +17,7 @@
 		// wait until the document loads, then request data
 		$( document ).ready(function() {
 	      	$.ajax({
-				  	url: 'http://amer-demo7-test.apigee.net/v1/nearby/' + lat + ',' + lon, 
+				  	url: 'http://<YOUR APIGEE ORG URL HERE>/v1/nearby/' + lat + ',' + lon, 
 				  	type: 'GET',
 				  	dataType: 'json',
 				  	success: updateLocalData,
