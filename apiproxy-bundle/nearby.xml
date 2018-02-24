@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="5" name="nearby">
+    <Basepaths>/nearby</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1519329172874</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description>nearby</Description>
+    <DisplayName>nearby</DisplayName>
+    <LastModifiedAt>1519429415226</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <Policies>
+        <Policy>Build-Map-Request</Policy>
+        <Policy>Compose-Results</Policy>
+        <Policy>ExtractCurrentWeather</Policy>
+        <Policy>ExtractLocation</Policy>
+        <Policy>ExtractRestaurants</Policy>
+        <Policy>Spike-Arrest-1</Policy>
+        <Policy>UpdateResponse</Policy>
+        <Policy>find-nearby-restaurants</Policy>
+        <Policy>get-apikey</Policy>
+        <Policy>get-places-apikey</Policy>
+        <Policy>reduce-places</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://composeresults.js</Resource>
+        <Resource>jsc://reduce-places.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

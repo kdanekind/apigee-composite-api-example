@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="Build-Map-Request">
+    <DisplayName>BuildMapRequest</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Set>
+        <QueryParams>
+            <QueryParam name="location">{lat},{long}</QueryParam>
+            <QueryParam name="radius">10000</QueryParam>
+            <QueryParam name="types">restaurant</QueryParam>
+            <QueryParam name="key">{private.places-apikey}</QueryParam>
+        </QueryParams>
+        <Verb>GET</Verb>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request">mapRequest</AssignTo>
+</AssignMessage>

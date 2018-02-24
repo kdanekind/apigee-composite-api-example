@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <FaultRules/>
+                <Name>Spike-Arrest-1</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>ExtractLocation</Name>
+            </Step>
+            <Step>
+                <Name>get-apikey</Name>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <FaultRules/>
+                <Name>ExtractCurrentWeather</Name>
+            </Step>
+            <Step>
+                <Name>get-places-apikey</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>Build-Map-Request</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>find-nearby-restaurants</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>ExtractRestaurants</Name>
+            </Step>
+            <Step>
+                <Name>reduce-places</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>Compose-Results</Name>
+            </Step>
+        </Response>
+    </PreFlow>
+    <Flows/>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/nearby</BasePath>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

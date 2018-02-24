@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>A Simple Weather Application</title>
+    <link href="css/myweather.css" rel="stylesheet">
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/distance.js"></script>
+</head>
+<body>
+
+    <script>
+    	
+    	var lat = 40.0216013;
+    	var lon = -105.2567499;
+   	    	
+		// wait until the document loads, then request data
+		$( document ).ready(function() {
+	      	$.ajax({
+				  	url: 'http://amer-demo7-test.apigee.net/v1/nearby/' + lat + ',' + lon, 
+				  	type: 'GET',
+				  	dataType: 'json',
+				  	success: updateLocalData,
+				  	error: function(ts) { alert("Error: " + ts.responseText); },
+				  	beforeSend: setHeader
+			  	});
+	    });
+	
+	    // Pass oauth token in header
+	    function setHeader(xhr) 
+	    {
+	        // xhr.setRequestHeader('Authorization', 'Bearer ' + oauthToken);
+	    }
+	
+		// update HTML for current weather conditions
+        function updateLocalData(data)
+        {
+            // Update weather HTML
+            lastUpdate = new Date(data.weather.time * 1000);    
+            $('#lastUpdated').html("Updated " + lastUpdate.toLocaleTimeString());
+            $('#icon').html("<img src='images/" + data.weather.icon + ".png'/>");
+            $('#currentTemp').html(Math.round(data.weather.temperature) + "&deg; (F) " + data.weather.summary);
+            
+            var restaurantHTML = "";
+            var distance = 0;
+
+            // Calculate distance, add it to each restaurant listing
+            for(i = 0; i < data.restaurants.length; i++)
+            {
+	            distance = getDistanceFromLatLonInKm(lat, lon, data.restaurants[i].location.lat, data.restaurants[i].location.lng);
+	            data.restaurants[i].distance = distance;	            				  
+            }
+            
+            // Sort restaurants by distance
+            data.restaurants.sort(function(a, b){return a.distance - b.distance});
+            
+            // Build HTML for list of nearby restaurants
+            for(i = 0; i < data.restaurants.length; i++)
+            {
+	            restaurantHTML += "<div class='restaurantName'>" + data.restaurants[i].name + "</div>" + 
+	            				  "<div class='restaurantAddress'>" + data.restaurants[i].vicinity + "</div>" +         					
+								  "<div class='restaurantDistance'>Rating: " + data.restaurants[i].rating + "</div>" +	
+ 								  "<div class='restaurantDistance'>" + Math.round(data.restaurants[i].distance) + " miles</div><br/>";	            		
+            }	
+            
+            // Update HTML for nearby restaurants
+            $('#sectionLabel').html("Nearby Restaurants");  // replace "Searching..." with "Nearby Restaurants"
+            $('#restaurants').html(restaurantHTML); // replace empty HTML with list of restaurants  
+        }
+        
+    </script>
+    
+    <!-- display weather summary -->
+    <div id="icon" class="icon"></div>
+    <div id="currentTemp" class="temp"></div>
+    <div id="currentSummary" class="currentSummary"></div>
+    <br/>
+    <div id="lastUpdated" class="lastUpdated"></div><br/><br/> 
+
+	<!-- display restaraunts -->
+    <div id="sectionLabel" class="sectionLabel">Searching...</div><br/>
+    <div id="restaurants"></div>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+body {
+    color: white;
+    font-family: sans-serif;
+    background-color: black;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sectionLabel {
+    font-family: Helvetica;
+    font-size: 30px;
+    font-weight: lighter;
+    color: white;	
+}
+
+.temp {
+    position: absolute;
+    left: 15px;
+    top: 240px;
+    font-family: Helvetica;
+    font-size: 40px;
+    font-weight: lighter;
+    color: white;
+}
+
+.forecastDayBox {
+	border: 1px solid dimgray;
+	padding: 4px;
+	margin: 4px;
+	background: #000000;
+}
+
+.forecastDayBox2 {
+	border: none;
+	padding: 4px;
+	margin: 4px;
+	background: #274098;
+}
+
+.dayName {
+    font-family: Helvetica;
+    font-size: 24px;
+    font-weight: lighter;	
+}
+
+.dailySummaryText {
+    font-family: Helvetica;
+    font-size: 14px;
+    font-weight: lighter;		
+}
+
+.currentSummary {
+    font-family: Helvetica;
+    font-size: 60px;
+    font-weight: 500	
+}
+
+.lastUpdated {
+    font-family: Helvetica;
+    font-size: 10px;
+    font-weight: lighter;
+    color: white;	
+}
+
+.dailyIcon {
+	height: 70px; 
+}
+
+.restaurantName {
+    font-family: Helvetica;
+    font-size: 14px;
+    font-weight: normal;
+    color: white;		
+}
+
+.restaurantAddress {
+    font-family: Helvetica;
+    font-size: 12px;
+    font-weight: lighter;
+    color: white;		
+}
+
+.restaurantDistance {
+    font-family: Helvetica;
+    font-size: 10px;
+    font-weight: lighter;
+    color: #a8a8a8;		
+}
+
+.icon {
+	
+}

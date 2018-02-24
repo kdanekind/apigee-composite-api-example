@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="find-nearby-restaurants">
+  <DisplayName>find-nearby-restaurants</DisplayName>
+  <Request clearPayload="true" variable="mapRequest"/>
+  <Response>restaurantsResponse</Response>
+  <Timeout>30000</Timeout>
+    <HTTPTargetConnection>
+        <URL>https://maps.googleapis.com/maps/api/place/nearbysearch/json</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations mapIdentifier="secrets1" name="get-places-apikey">
+    <Scope>environment</Scope>
+    <Get assignTo="private.places-apikey">
+        <Key>
+            <Parameter>places-apikey</Parameter>
+        </Key>
+    </Get>
+</KeyValueMapOperations>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="reduce-places">
+    <DisplayName>reduce places</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://reduce-places.js</ResourceURL>
+</Javascript>
