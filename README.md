@@ -11,14 +11,14 @@ This example is not an official Google product, nor is it part of an official Go
 
 Zip up the apiproxy-bundle directory and then you can import it into Edge as a new proxy
 
-#Steps:#
+#Steps:
 ![alt text](1.jpeg "Proxy bundle option")
 Create a new proxy using the Proxy Bundle option
 
 ![alt text](2.jpg "Upload the bundle")
 Upload the bundle
 
-![alt text](3.jpg "Upload the bundle")
+![alt text](3.jpg "Deploy the new proxy")
 Deploy the new proxy
 
 ## License
